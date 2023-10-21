@@ -1,7 +1,7 @@
-import './globals.css'
+import '../styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Link from 'next/link'
+import Header from '@/components/headertools'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,11 +20,7 @@ export default function RootLayout ({
   return (
     <html lang="es">
       <body className={inter.className + ' min-h-screen bg-gray-900'}>
-        <header className='flex justify-center p-5 shadow-lg bg-slate-800'>
-          <nav>
-            <Link href={'/profit-calculator'}>Profit calculator</Link>
-          </nav>
-        </header>
+        <Header />
         <main className='p-5 flex flex-col items-center'>
           {children}
         </main>
