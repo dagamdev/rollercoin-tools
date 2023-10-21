@@ -1,0 +1,20 @@
+.key-button{
+  /* box-shadow: 0 6px 0 #d97706, 4px 10px 0 #0f172a, -4px 10px 0 #0f172a; */
+  box-shadow: 4px 4px 0 #0f172a, -4px 4px 0 #0f172a;
+}
+
+.key-button span{
+  transition: opacity 0.3s ease;
+}
+
+.key-button div{
+  transition: height 0.3s ease;
+}
+
+.pressed span{
+  opacity: 80%;
+}
+
+.pressed div{
+  height: 4px;
+}
