@@ -27,10 +27,10 @@ export default function Header () {
           {PAGES_PATHS.map(pp => <li className=''
             key={pp.path}
           >
-            <Link className={`key-button ${pathName === pp.path ? 'pressed ' : ''}flex flex-col mb-[4px] rounded-md bg-amber-600`}
+            <Link className={`key-button ${pathName === pp.path ? 'pressed ' : 'hover:brightness-110 '}flex flex-col mb-[4px] rounded-lg bg-amber-700`}
               href={pp.path}
             >
-              <span className='flex py-2 px-4 rounded-md text-3xl border bg-amber-500 border-amber-400'>{pp.icon}</span>
+              <span className='flex py-2 px-5 rounded-lg text-2xl border bg-amber-500 border-amber-400'>{pp.icon}</span>
               <div className='h-[8px] rounded-b-md' />
             </Link>
           </li>)}
