@@ -1,6 +1,5 @@
 .key-button{
-  /* box-shadow: 0 6px 0 #d97706, 4px 10px 0 #0f172a, -4px 10px 0 #0f172a; */
-  box-shadow: 4px 4px 0 #0f172a, -4px 4px 0 #0f172a;
+  box-shadow: 3px 4px 0 #0f172a, -3px 4px 0 #0f172a;
 }
 
 .key-button span{
@@ -16,5 +15,5 @@
 }
 
 .pressed div{
-  height: 4px;
+  height: 2px;
 }
