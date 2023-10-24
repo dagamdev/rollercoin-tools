@@ -31,7 +31,7 @@ export default function Header () {
               href={pp.path}
             >
               <span className='flex py-2 px-5 rounded-lg text-2xl border bg-amber-500 border-amber-400'>{pp.icon}</span>
-              <div className='h-[8px] rounded-b-md' />
+              <div className='h-[8px] rounded-b-lg' />
             </Link>
           </li>)}
         </ul>
