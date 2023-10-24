@@ -13,13 +13,12 @@ export default function CurrencySelector ({ currency, setCurrency, currencies }:
 
   useEffect(() => {
     if (currenciesListRef.current !== null && currenciesListContainerRef.current !== null) {
-      // console.log(currenciesListRef.current.clientHeight)
       currenciesListContainerRef.current.style.height = openCurrencySelector ? currenciesListRef.current.clientHeight + 'px' : ''
     }
   }, [openCurrencySelector])
 
   return (
-    <section>
+    <section className='w-full'>
       <p>Select currency</p>
 
       <div className={`currency-selector ${openCurrencySelector ? 'open-selector ' : ''}relative`}>
