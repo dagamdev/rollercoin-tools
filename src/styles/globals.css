@@ -29,3 +29,26 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+button.key{
+  box-shadow: 3px 4px 0 #0f172a, -3px 4px 0 #0f172a;
+  margin-top: 10px;
+  transition: margin 0.3s, background-color 0.3s, opacity 0.3s;
+}
+
+button.key strong{
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+button.key span{
+  transition: height 0.3s;
+}
+
+button.key.locked, button.key.pressed{
+  opacity: 80%;
+  margin-top: 16px;
+}
+
+button.key.locked span, button.key.pressed span{
+  height: 2px;
+}
