@@ -17,7 +17,7 @@ export default async function CurrencyBlockReward (req: NextApiRequest, res: Nex
 
   const nowTimeIso = new Date().toISOString()
 
-  const promise = await customFetch(`network-info-by-day?from=${nowTimeIso}&to=${nowTimeIso}&currency=${currency}&groupBy=block_reward`)
+  const promise = await customFetch(`mining/network-info-by-day?from=${nowTimeIso}&to=${nowTimeIso}&currency=${currency}&groupBy=block_reward`)
   const data = await promise.json()
 
   if (data.success === true) {

@@ -17,7 +17,7 @@ export default async function CurrencyPower (req: NextApiRequest, res: NextApiRe
 
   const nowTimeIso = new Date().toISOString()
 
-  const promise = await customFetch(`network-info-by-day?from=${nowTimeIso}&to=${nowTimeIso}&currency=${currency}&groupBy=total_power`)
+  const promise = await customFetch(`mining/network-info-by-day?from=${nowTimeIso}&to=${nowTimeIso}&currency=${currency}&groupBy=total_power`)
   const data = await promise.json()
 
   if (data.success === true) {

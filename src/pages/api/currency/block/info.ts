@@ -15,7 +15,7 @@ export default async function CurrencyInfo (req: NextApiRequest, res: NextApiRes
     return
   }
 
-  const promise = await customFetch(`last-block-info-for-currency?currency=${currency}`)
+  const promise = await customFetch(`mining/last-block-info-for-currency?currency=${currency}`)
   const data = await promise.json()
 
   res.json(data)
