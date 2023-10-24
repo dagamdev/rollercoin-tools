@@ -1,5 +1,5 @@
 import { useId, useState, useEffect, type ChangeEvent } from 'react'
-import SelectUnit from './select-unit'
+import UnitSelector from './unit-selector'
 import { POWER_UNITS } from '@/utils/configtools'
 import type { PowerUnits, StateFunction } from '@/typestools'
 
@@ -21,7 +21,6 @@ export default function CustomInput ({ type, text, value, setValue }: {
         for (const key in POWER_UNITS) {
           const difference = valueLength - POWER_UNITS[key as PowerUnits].toString().length
           if (difference >= 0 && difference <= 2) {
-            console.log(key)
             setPowerUnit(key as PowerUnits)
             setInputValue((value / POWER_UNITS[key as PowerUnits]).toString())
           }
@@ -41,18 +40,29 @@ export default function CustomInput ({ type, text, value, setValue }: {
   }
 
   return (
-    <label className='flex flex-col my-4' htmlFor={inputId}>
+    <label className='flex w-full flex-col my-4' htmlFor={inputId}>
       {text}
-      <section className='mt-1 bg-gray-900'>
-        <input className='px-3 py-2 outline-none border-none bg-transparent'
+      {type === 'power'
+        ? <section className='flex mt-1 w-full rounded-md border border-gray-700 bg-gray-900'>
+            <input className='px-3 w-full py-2 outline-none bg-transparent'
+              onChange={handleChange}
+              style={{
+                WebkitAppearance: 'none',
+                MozAppearance: 'textfield',
+                writingMode: 'horizontal-tb'
+              }} id={inputId} name='power' type="number" value={inputValue} defaultValue={value}
+            />
+          <UnitSelector selectValue={powerUnit} setSelectValue={setPowerUnit} />
+        </section>
+        : <input className='flex w-full px-3 py-2 outline-none rounded-md border border-gray-700 bg-gray-900'
           onChange={handleChange}
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'textfield',
             writingMode: 'horizontal-tb'
-          }} id={inputId} name='power' type="number" value={inputValue} defaultValue={value} />
-        {type === 'power' && <SelectUnit selectValue={powerUnit} setSelectValue={setPowerUnit} />}
-      </section>
+          }} id={inputId} name='power' type="number" value={inputValue} defaultValue={value}
+        />
+      }
     </label>
   )
 }
