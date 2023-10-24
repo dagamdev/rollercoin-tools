@@ -40,7 +40,7 @@ export default function CustomInput ({ type, text, value, setValue }: {
   }
 
   return (
-    <label className='flex w-full flex-col my-4' htmlFor={inputId}>
+    <label className='flex w-full flex-col' htmlFor={inputId}>
       {text}
       {type === 'power'
         ? <section className='flex mt-1 w-full rounded-md border border-gray-700 bg-gray-900'>
