@@ -10,7 +10,7 @@ export default function SelectUnit ({ selectValue, setSelectValue }: {
   }
 
   return (
-    <select className='p-2 bg-gray-900'
+    <select className='p-2 h-full rounded-none outline-none border-l cursor-pointer rounded-r-md border-l-gray-800  bg-gray-900'
       onChange={handleChangeUnit} id="myUnits" value={selectValue}
     >
       <option value='Th'>Th/s</option>
