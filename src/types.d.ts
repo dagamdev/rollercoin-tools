@@ -59,3 +59,5 @@ export interface CalculatorData {
   blockReward: number
   currencyReward: number
 }
+
+type StorageKey = 'asigned_power'
