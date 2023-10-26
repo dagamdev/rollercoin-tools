@@ -1,7 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react'
 import CurrencySelector from './currency-selector'
 import CustomInput from './custom-input'
-import { customApiFetch } from '@/utils/servicestools'
+import { customApiFetch, getStorageData, updateStorageData } from '@/utils/servicestools'
 import type { BaseData, CurrenciesConfig, Currency, DateAndValue } from '@/typestools'
 import useCalculator from '@/hooks/use-calculatortools'
 import SwitchPower from './switch-power'
@@ -20,9 +20,10 @@ export default function Form () {
   const [buttonStatus, setButtonStatus] = useState<'locked' | 'pressed' | 'available'>('locked')
 
   useEffect(() => {
-    customApiFetch<BaseData<CurrenciesConfig>>('currencies').then((data) => {
-      // console.log(data)
+    const assignedPowerByStorage = getStorageData('asigned_power')
+    if (assignedPowerByStorage !== null) setAssignedPower(parseFloat(assignedPowerByStorage))
 
+    customApiFetch<BaseData<CurrenciesConfig>>('currencies').then((data) => {
       if (typeof data.data === 'object') {
         const theyCanBeMined = data.data.currencies_config.filter(f => f.is_can_be_mined).sort((a, b) => a.position - b.position)
         setCurrencies(theyCanBeMined)
@@ -54,6 +55,7 @@ export default function Form () {
   useEffect(() => {
     if (notUndefined) {
       if (buttonStatus !== 'available') setButtonStatus('available')
+      updateStorageData('asigned_power', assignedPower)
     } else if (buttonStatus !== 'locked') setButtonStatus('locked')
   }, [assignedPower, networkPower, blockTime, blockReward, currency, addPower])
 
@@ -76,11 +78,12 @@ export default function Form () {
 
   return (
     <form onSubmit={onSubmit} className='flex items-center flex-col gap-y-3 p-4 max-w-[400px] rounded-lg shadow-xl border border-slate-700/90 bg-slate-800'>
-      <SwitchPower {...{ addPower, setAddPower }} />
+      <section className='flex w-full gap-x-3'>
+        <CurrencySelector currency={currency} setCurrency={setCurrency} currencies={currencies} />
+        <SwitchPower {...{ addPower, setAddPower }} />
+      </section>
 
-      <CurrencySelector currency={currency} setCurrency={setCurrency} currencies={currencies} />
-
-      <CustomInput type='power' setValue={setAssignedPower} text='Power to the currency' />
+      <CustomInput type='power' value={assignedPower} setValue={setAssignedPower} text='Power to the currency' />
       <CustomInput type='power' value={networkPower} setValue={setNetworkPower} text='Network power' />
       <section className='flex w-full gap-x-4'>
         <CustomInput type='number' value={blockReward} setValue={setBlockReward} text='Reward per block' />
