@@ -18,10 +18,10 @@ export default function CurrencySelector ({ currency, setCurrency, currencies }:
   }, [openCurrencySelector])
 
   return (
-    <section className='w-full'>
+    <section className='flex-1'>
       <p>Select currency</p>
 
-      <div className={`currency-selector ${openCurrencySelector ? 'open-selector ' : ''}relative`}>
+      <div className={`mt-1 currency-selector ${openCurrencySelector ? 'open-selector ' : ''}relative z-10`}>
         <div className={'selected-currency flex relative items-center z-10 py-2 px-3 min-h-[40px] cursor-pointer justify-between rounded-md border border-gray-700 bg-gray-900' + (openCurrencySelector
           ? ' rounded-b-none'
           : ''
