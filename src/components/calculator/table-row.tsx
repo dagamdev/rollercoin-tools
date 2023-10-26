@@ -1,14 +1,14 @@
 import useCalculator from '@/hooks/use-calculatortools'
-import { customApiFetch } from '@/utils/servicestools'
 import { useState, useEffect } from 'react'
 
-export default function TableRow ({ rowData }: {
+export default function TableRow ({ rowData, USDTValue }: {
   rowData: {
     name: string
     value: number
   }
+  USDTValue: number
 }) {
-  const { currency, currencyReward, blockTime } = useCalculator()
+  const { currencyReward, blockTime } = useCalculator()
   const [reward, setReward] = useState(0)
   const [USDTReward, setUSDTReward] = useState(0)
 
@@ -20,26 +20,14 @@ export default function TableRow ({ rowData }: {
   }, [currencyReward, blockTime])
 
   useEffect(() => {
-    if (currency !== undefined && ['RLT', 'RST'].every(e => e !== currency.name)) {
-      console.log({ reward: reward.toFixed(6) })
-      customApiFetch<{
-        success: boolean
-        error: string
-        value: number
-      }>(`currency/convert/${currency.code}/usdt/${reward.toFixed(6)}`).then(data => {
-        if (data.success) {
-          console.log(currency.code, data)
-          setUSDTReward(data.value)
-        }
-      })
-    } else if (USDTReward !== 0) setUSDTReward(0)
-  }, [currency, reward])
+    setUSDTReward(parseFloat((USDTValue * reward).toFixed(6)))
+  }, [USDTValue, reward])
 
   return (
     <tr>
-      <td className='border px-3 py-2 text-left'>{rowData.name}</td>
-      <td className='border px-3 py-2 text-left'>{reward.toFixed(6)}</td>
-      <td className='border px-3 py-2 text-left'>{USDTReward}</td>
+      <td className='px-3 py-2 text-left font-semibold border border-gray-600'>{rowData.name}</td>
+      <td className='px-3 py-2 text-left border border-gray-600'>{reward.toFixed(6)}</td>
+      <td className='px-3 py-2 text-left border border-gray-600'>{USDTReward}</td>
     </tr>
   )
 }
