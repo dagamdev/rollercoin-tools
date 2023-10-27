@@ -4,8 +4,8 @@ import '../../styles/calculator.css'
 import { useState } from 'react'
 import { CalculatorContext } from '@/contexts/calculator-contexttools'
 import type { CalculatorData } from '@/typestools'
-import Form from '@/components/calculator/formtools'
-import Table from '@/components/calculator/tabletools'
+import Form from '@/components/profit/formtools'
+import Table from '@/components/profit/tabletools'
 
 export default function ProfitCalculatorPage () {
   const [calculatorData, setCalculatorData] = useState<CalculatorData>({
