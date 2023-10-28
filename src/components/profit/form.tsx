@@ -1,13 +1,13 @@
 import { useState, useEffect, type FormEvent } from 'react'
 import { customApiFetch, getStorageData, updateStorageData } from '@/utils/servicestools'
 import type { BaseData, CurrenciesConfig, Currency, DateAndValue } from '@/typestools'
-import useCalculator from '@/hooks/use-calculatortools'
+import useProfit from '@/hooks/use-profittools'
 import SwitchPower from './switch-power'
 import CustomInput from './custom-input'
 import CurrencySelector from './currency-selector'
 
 export default function Form () {
-  const { setCalculatorData } = useCalculator()
+  const { setCalculatorData } = useProfit()
   const [currencies, setCurrencies] = useState<Currency[]>([])
   const [currency, setCurrency] = useState<Currency>()
 

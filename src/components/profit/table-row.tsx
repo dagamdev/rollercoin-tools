@@ -1,4 +1,4 @@
-import useCalculator from '@/hooks/use-calculatortools'
+import useCalculator from '@/hooks/use-profittools'
 import { useState, useEffect } from 'react'
 
 export default function TableRow ({ rowData, USDTValue }: {

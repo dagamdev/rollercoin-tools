@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useCalculator from '@/hooks/use-calculatortools'
+import useProfit from '@/hooks/use-profittools'
 import TableRow from './table-row'
 import { customApiFetch } from '@/utils/servicestools'
 
@@ -27,7 +27,7 @@ const REWARDS_ROWS = [
 ]
 
 export default function Table () {
-  const { currency } = useCalculator()
+  const { currency } = useProfit()
   const [USDTValue, setUSDTValue] = useState(0)
 
   useEffect(() => {
