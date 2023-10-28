@@ -56,7 +56,6 @@ export type StateFunction<State> = Dispatch<SetStateAction<State>>
 export interface CalculatorData {
   currency?: Currency
   blockTime: number
-  blockReward: number
   currencyReward: number
 }
 

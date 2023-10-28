@@ -11,7 +11,6 @@ export default function ProfitCalculatorPage () {
   const [calculatorData, setCalculatorData] = useState<CalculatorData>({
     blockTime: 0,
     currency: undefined,
-    blockReward: 0,
     currencyReward: 0
   })
 
