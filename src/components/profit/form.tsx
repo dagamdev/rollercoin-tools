@@ -7,7 +7,7 @@ import CustomInput from './custom-input'
 import CurrencySelector from './currency-selector'
 
 export default function Form () {
-  const { setCalculatorData } = useProfit()
+  const { setProfitData } = useProfit()
   const [currencies, setCurrencies] = useState<Currency[]>([])
   const [currency, setCurrency] = useState<Currency>()
 
@@ -73,7 +73,7 @@ export default function Form () {
       const powerPercentage = (assignedPower * 100) / (addPower ? networkPower + assignedPower : networkPower)
       const rewarAmount = (powerPercentage / 100) * blockReward
 
-      setCalculatorData({
+      setProfitData({
         currency,
         blockTime,
         currencyReward: rewarAmount

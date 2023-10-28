@@ -2,13 +2,13 @@
 
 import '../../styles/calculator.css'
 import { useState } from 'react'
-import { CalculatorContext } from '@/contexts/calculator-contexttools'
-import type { CalculatorData } from '@/typestools'
+import { ProfitContext } from '@/contexts/profit-contexttools'
+import type { ProfitData } from '@/typestools'
 import Form from '@/components/profit/formtools'
 import Table from '@/components/profit/tabletools'
 
 export default function ProfitCalculatorPage () {
-  const [calculatorData, setCalculatorData] = useState<CalculatorData>({
+  const [profitData, setProfitData] = useState<ProfitData>({
     blockTime: 0,
     currency: undefined,
     currencyReward: 0
@@ -18,16 +18,15 @@ export default function ProfitCalculatorPage () {
     <>
       <h1 className='font-bold text-4xl mb-5'>Profit calculator</h1>
 
-      <CalculatorContext.Provider value={{
-        ...calculatorData,
-        setCalculatorData
+      <ProfitContext.Provider value={{
+        ...profitData,
+        setProfitData
       }}>
         <section className='flex gap-5 flex-wrap justify-center'>
           <Form />
-
           <Table />
         </section>
-      </CalculatorContext.Provider>
+      </ProfitContext.Provider>
     </>
   )
 }
