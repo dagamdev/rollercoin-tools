@@ -26,8 +26,8 @@ export default function TableRow ({ rowData, USDTValue }: {
   return (
     <tr>
       <td className='px-3 py-2 text-left font-semibold border border-gray-600'>{rowData.name}</td>
-      <td className='px-3 py-2 text-left border border-gray-600'>{reward.toFixed(6)}</td>
-      <td className='px-3 py-2 text-left border border-gray-600'>{USDTReward}</td>
+      <td className='px-3 py-2 text-center border border-gray-600'>{parseFloat(reward.toFixed(6))}</td>
+      <td className='px-3 py-2 text-center border border-gray-600'>{USDTReward}</td>
     </tr>
   )
 }
