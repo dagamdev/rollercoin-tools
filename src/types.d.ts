@@ -59,4 +59,4 @@ export interface CalculatorData {
   currencyReward: number
 }
 
-type StorageKey = 'asigned_power'
+type StorageKey = 'asigned_power' | 'currency_selected'

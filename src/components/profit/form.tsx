@@ -1,10 +1,10 @@
 import { useState, useEffect, type FormEvent } from 'react'
-import CurrencySelector from './currency-selector'
-import CustomInput from './custom-input'
 import { customApiFetch, getStorageData, updateStorageData } from '@/utils/servicestools'
 import type { BaseData, CurrenciesConfig, Currency, DateAndValue } from '@/typestools'
 import useCalculator from '@/hooks/use-calculatortools'
 import SwitchPower from './switch-power'
+import CustomInput from './custom-input'
+import CurrencySelector from './currency-selector'
 
 export default function Form () {
   const { setCalculatorData } = useCalculator()
@@ -26,8 +26,15 @@ export default function Form () {
     customApiFetch<BaseData<CurrenciesConfig>>('currencies').then((data) => {
       if (typeof data.data === 'object') {
         const theyCanBeMined = data.data.currencies_config.filter(f => f.is_can_be_mined).sort((a, b) => a.position - b.position)
+        const previousCurrency = theyCanBeMined.find(f => f.balance_key === getStorageData('currency_selected'))
+
         setCurrencies(theyCanBeMined)
-        setCurrency(theyCanBeMined[0])
+
+        if (previousCurrency !== undefined) {
+          setCurrency(previousCurrency)
+        } else {
+          setCurrency(theyCanBeMined[0])
+        }
       }
     }).catch(e => { console.error(e) })
   }, [])
@@ -69,7 +76,6 @@ export default function Form () {
       setCalculatorData({
         currency,
         blockTime,
-        blockReward,
         currencyReward: rewarAmount
       })
       setButtonStatus('pressed')

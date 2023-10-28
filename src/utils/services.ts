@@ -5,7 +5,8 @@ export async function customApiFetch<Data=any> (path: string): Promise<Data> {
 }
 
 export function getStorageData (key: StorageKey) {
-  return localStorage.getItem(key)
+  const preData = localStorage.getItem(key)
+  return preData === null ? null : JSON.parse(preData)
 }
 
 export function updateStorageData (key: StorageKey, newData: any) {

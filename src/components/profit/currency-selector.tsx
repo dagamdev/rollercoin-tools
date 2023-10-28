@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import type { Currency, StateFunction } from '@/typestools'
 import { MdArrowBackIos } from 'react-icons/md'
+import { updateStorageData } from '@/utils/servicestools'
 
 export default function CurrencySelector ({ currency, setCurrency, currencies }: {
   currency?: Currency
@@ -44,6 +45,7 @@ export default function CurrencySelector ({ currency, setCurrency, currencies }:
             const handleClick = () => {
               setOpenCurrencySelector(false)
               setCurrency(c)
+              updateStorageData('currency_selected', c.balance_key)
             }
 
             return (<li className={'flex py-2 px-3 gap-x-2 cursor-pointer hover:bg-gray-500/50' + (c.balance_key === currency?.balance_key
