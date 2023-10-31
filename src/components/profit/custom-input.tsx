@@ -1,7 +1,7 @@
 import { useId, useState, useEffect, type ChangeEvent } from 'react'
 import UnitSelector from './unit-selector'
-import { POWER_UNITS } from '@/utils/configtools'
-import type { PowerUnits, StateFunction } from '@/typestools'
+import { POWER_UNITS, type PowerUnits } from '@/utils/configtools'
+import type { StateFunction } from '@/typestools'
 
 export default function CustomInput ({ type, text, value, setValue }: {
   type: 'number' | 'power'
@@ -32,7 +32,11 @@ export default function CustomInput ({ type, text, value, setValue }: {
   }, [value])
 
   useEffect(() => {
-    setValue(inputValue.length === 0 ? undefined : parseFloat(inputValue) * POWER_UNITS[powerUnit])
+    if (type === 'power') {
+      setValue(inputValue.length === 0 ? undefined : parseFloat(inputValue) * POWER_UNITS[powerUnit])
+    } else {
+      setValue(inputValue.length === 0 ? undefined : parseFloat(inputValue))
+    }
   }, [powerUnit, inputValue])
 
   const handleChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
@@ -54,7 +58,7 @@ export default function CustomInput ({ type, text, value, setValue }: {
             />
           <UnitSelector selectValue={powerUnit} setSelectValue={setPowerUnit} />
         </section>
-        : <input className='flex w-full px-3 py-2 outline-none rounded-md border border-gray-700 bg-gray-900'
+        : <input className='flex w-full mt-1 px-3 py-2 outline-none rounded-md border border-gray-700 bg-gray-900'
           onChange={handleChange}
           style={{
             WebkitAppearance: 'none',
