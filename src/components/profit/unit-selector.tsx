@@ -1,5 +1,6 @@
 import { type ChangeEvent } from 'react'
-import type { PowerUnits, StateFunction } from '@/typestools'
+import { type PowerUnits } from '@/utils/configtools'
+import type { StateFunction } from '@/typestools'
 
 export default function SelectUnit ({ selectValue, setSelectValue }: {
   selectValue: string
