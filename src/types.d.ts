@@ -49,14 +49,22 @@ export interface DateAndValue {
   value: number
 }
 
-export type PowerUnits = 'Th' | 'Ph' | 'Eh' | 'Zh'
-
 export type StateFunction<State> = Dispatch<SetStateAction<State>>
 
-export interface CalculatorData {
+export type ButtonStates = 'locked' | 'pressed' | 'available'
+
+export type StorageKey = 'asigned_power' | 'currency_selected'
+
+export interface ProfitData {
   currency?: Currency
   blockTime: number
   currencyReward: number
 }
 
-type StorageKey = 'asigned_power' | 'currency_selected'
+export interface ProfitabilityData {
+  actualPower?: number
+  actualBonus?: number
+  purchasingPower?: number
+  purchasingBonus?: number
+  purchasingCost?: number
+}
