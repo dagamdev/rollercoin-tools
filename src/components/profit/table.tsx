@@ -36,8 +36,7 @@ export default function Table () {
         success: boolean
         error: string
         value: number
-      }>(`currency/convert/${currency.code}/usdt/1`).then(data => {
-        // console.log(data)
+      }>(`currency/convert/${currency.code}`).then(data => {
         if (data.success) {
           setUSDTValue(data.value)
         }
@@ -54,7 +53,7 @@ export default function Table () {
           <tr className='border border-gray-600 bg-gray-800'>
             <th className='px-3 py-2 text-left'>Reward by</th>
             <th className='px-3 py-2 text-left'>Reward</th>
-            <th className='px-3 py-2 text-left'>USDT</th>
+            <th className='px-3 py-2 text-left'>USD</th>
           </tr>
         </thead>
         <tbody>
