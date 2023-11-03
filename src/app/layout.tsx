@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | RollerTools'
   },
   description: 'Tools and utilities for RollerCoin',
-  themeColor: '#d97706'
+  themeColor: '#f59e0b'
 }
 
 export default function RootLayout ({
