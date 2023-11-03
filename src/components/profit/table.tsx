@@ -28,7 +28,7 @@ const REWARDS_ROWS = [
 
 export default function Table () {
   const { currency } = useProfit()
-  const [USDTValue, setUSDTValue] = useState(0)
+  const [USDValue, setUSDValue] = useState(0)
 
   useEffect(() => {
     if (currency !== undefined && ['RLT', 'RST'].every(e => e !== currency.name)) {
@@ -38,9 +38,11 @@ export default function Table () {
         value: number
       }>(`currency/convert/${currency.code}`).then(data => {
         if (data.success) {
-          setUSDTValue(data.value)
+          setUSDValue(data.value)
         }
       })
+    } else {
+      setUSDValue(0)
     }
   }, [currency])
 
@@ -57,7 +59,7 @@ export default function Table () {
           </tr>
         </thead>
         <tbody>
-          {REWARDS_ROWS.map(rr => <TableRow key={rr.name} rowData={rr} USDTValue={USDTValue} />)}
+          {REWARDS_ROWS.map(rr => <TableRow key={rr.name} rowData={rr} USDValue={USDValue} />)}
         </tbody>
       </table>
     </section>

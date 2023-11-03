@@ -1,12 +1,12 @@
 import useCalculator from '@/hooks/use-profittools'
 import { useState, useEffect } from 'react'
 
-export default function TableRow ({ rowData, USDTValue }: {
+export default function TableRow ({ rowData, USDValue }: {
   rowData: {
     name: string
     value: number
   }
-  USDTValue: number
+  USDValue: number
 }) {
   const { currencyReward, blockTime } = useCalculator()
   const [reward, setReward] = useState(0)
@@ -20,8 +20,8 @@ export default function TableRow ({ rowData, USDTValue }: {
   }, [currencyReward, blockTime])
 
   useEffect(() => {
-    setUSDTReward(parseFloat((USDTValue * reward).toFixed(6)))
-  }, [USDTValue, reward])
+    setUSDTReward(parseFloat((USDValue * reward).toFixed(6)))
+  }, [USDValue, reward])
 
   return (
     <tr>
