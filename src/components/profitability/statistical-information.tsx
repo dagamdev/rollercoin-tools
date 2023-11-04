@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import useProfitability from '@/hooks/use-profitabilitytools'
-import CustomInput from '../profit/custom-input'
+import CustomInput from '../custom-input'
 import MetricDisplay from '../metric-display'
 
 export default function StatisticalInformation () {

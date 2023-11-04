@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import useProfitability from '@/hooks/use-profitabilitytools'
-import CustomInput from '../profit/custom-input'
+import CustomInput from '../custom-input'
 
 export default function PurchasingDetails () {
   const [purchasingCost, setPurchasingCost] = useState<number>()

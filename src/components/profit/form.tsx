@@ -3,7 +3,7 @@ import { customApiFetch, getStorageData, updateStorageData } from '@/utils/servi
 import type { BaseData, CurrenciesConfig, Currency, DateAndValue } from '@/typestools'
 import useProfit from '@/hooks/use-profittools'
 import SwitchPower from './switch-power'
-import CustomInput from './custom-input'
+import CustomInput from '../custom-input'
 import CurrencySelector from './currency-selector'
 import CustomButton from '../custom-button'
 

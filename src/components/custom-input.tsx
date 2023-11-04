@@ -1,5 +1,5 @@
 import { useId, useState, useEffect, type ChangeEvent } from 'react'
-import UnitSelector from './unit-selector'
+import UnitSelector from './profit/unit-selector'
 import { POWER_UNITS, type PowerUnits } from '@/utils/configtools'
 import type { StateFunction } from '@/typestools'
 
