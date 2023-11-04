@@ -5,6 +5,7 @@ import useProfit from '@/hooks/use-profittools'
 import SwitchPower from './switch-power'
 import CustomInput from './custom-input'
 import CurrencySelector from './currency-selector'
+import CustomButton from '../custom-button'
 
 export default function Form () {
   const { setProfitData } = useProfit()
@@ -96,21 +97,9 @@ export default function Form () {
         <CustomInput type='number' value={blockTime} setValue={setBlockTime} text='Block time' />
       </section>
 
-      <button className={`key ${buttonStatus} rounded-lg w-full` + (buttonStatus === 'locked'
-        ? ' cursor-not-allowed bg-slate-700'
-        : buttonStatus === 'pressed'
-          ? ' cursor-not-allowed hover:brightness-110 bg-yellow-600'
-          : ' hover:brightness-110 bg-yellow-600'
-      )}
-        disabled={buttonStatus === 'locked'}
-      >
-        <strong className={'block p-2 rounded-lg border' + (buttonStatus === 'locked'
-          ? ' border-gray-500 bg-gray-600'
-          : ' text-gray-900 border-yellow-400 bg-yellow-500'
-        )}
-        >Calculate</strong>
-        <span className='block w-full h-[8px] rounded-b-lg'></span>
-      </button>
+      <CustomButton buttonStatus={buttonStatus}>
+        Calculate
+      </CustomButton>
     </form>
   )
 }
