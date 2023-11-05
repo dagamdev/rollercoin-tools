@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/headertools'
+import Footer from '@/components/formtools'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout ({
         <main className='p-5 flex flex-col items-center'>
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   )
