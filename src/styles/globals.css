@@ -30,6 +30,10 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+main{
+  min-height: calc(100vh - 94px);
+}
+
 button.key{
   box-shadow: 3px 4px 0 #0f172a, -3px 4px 0 #0f172a;
   margin-top: 10px;
