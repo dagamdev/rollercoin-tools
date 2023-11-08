@@ -28,7 +28,7 @@ export default function ProfitabilityCalculator () {
 
   return (
     <>
-      <h1 className='font-bold text-4xl mb-5'>Profitability calculator</h1>
+      <h1 className='font-bold text-3xl mb-5'>Profitability calculator</h1>
 
       <form onSubmit={handleSubmit} className='flex flex-col items-center'>
         <section className='flex flex-wrap gap-5 justify-center'>

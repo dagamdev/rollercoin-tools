@@ -1,7 +1,7 @@
 export default function Home () {
   return (
     <>
-      hola
+      <h1 className='text-3xl font-bold'>Roller tools</h1>
     </>
   )
 }
