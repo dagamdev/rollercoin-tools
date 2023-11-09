@@ -53,7 +53,7 @@ export type StateFunction<State> = Dispatch<SetStateAction<State>>
 
 export type ButtonStates = 'locked' | 'pressed' | 'available'
 
-export type StorageKey = 'asigned_power' | 'currency_selected'
+export type StorageKey = 'profit' | 'profitability'
 
 export interface ProfitData {
   currency?: Currency
@@ -67,4 +67,10 @@ export interface ProfitabilityData {
   purchasingPower?: number
   purchasingBonus?: number
   purchasingCost?: number
+}
+
+export interface ProfitStorageData {
+  assignedPower?: number
+  currencySelectedKey?: string
+  additionPower?: boolean
 }
