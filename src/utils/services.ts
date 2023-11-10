@@ -5,13 +5,28 @@ export async function customApiFetch<Data=any> (path: string): Promise<Data> {
   return await fetch('api/' + path).then(res => res.json())
 }
 
-export function getStorageData (key: StorageKey) {
+export function getStorageData<Data=string> (key: StorageKey): Data | null {
   const preData = localStorage.getItem(key)
-  return preData === null ? null : JSON.parse(preData)
+  const data = preData === null ? null : JSON.parse(preData)
+
+  if (typeof data !== 'object') {
+    return null
+  }
+
+  return data
 }
 
-export function updateStorageData (key: StorageKey, newData: any) {
-  localStorage.setItem(key, JSON.stringify(newData))
+export function updateStorageData<Data=any> (key: StorageKey, newData: Data, type?: 'string' | 'object') {
+  if (type === 'string') {
+    localStorage.setItem(key, JSON.stringify(newData))
+  } else {
+    const data = getStorageData<Data>('profit')
+
+    localStorage.setItem(key, JSON.stringify({
+      ...data,
+      ...newData
+    }))
+  }
 }
 
 export function formatPowerAmount (power: number) {
