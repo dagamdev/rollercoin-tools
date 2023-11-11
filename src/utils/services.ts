@@ -20,7 +20,7 @@ export function updateStorageData<Data=any> (key: StorageKey, newData: Data, typ
   if (type === 'string') {
     localStorage.setItem(key, JSON.stringify(newData))
   } else {
-    const data = getStorageData<Data>('profit')
+    const data = getStorageData<Data>(key)
 
     localStorage.setItem(key, JSON.stringify({
       ...data,
