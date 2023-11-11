@@ -74,3 +74,12 @@ export interface ProfitStorageData {
   currencySelectedKey?: string
   additionPower?: boolean
 }
+
+export interface ProfitabilityStorageData {
+  minersPower?: number
+  gamesPower?: number
+  bonusPercentage?: number
+  purchasingCost?: number
+  purchasingPower?: number
+  purchasingBonus?: number
+}
