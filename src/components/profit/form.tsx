@@ -1,6 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react'
 import { customApiFetch, getStorageData, updateStorageData } from '@/utils/servicestools'
-import type { BaseData, CurrenciesConfig, Currency, DateAndValue } from '@/typestools'
+import type { BaseData, CurrenciesConfig, Currency, DateAndValue, ProfitStorageData } from '@/typestools'
 import useProfit from '@/hooks/use-profittools'
 import SwitchPower from './switch-power'
 import CustomInput from '../custom-input'
@@ -17,17 +17,22 @@ export default function Form () {
   const [blockReward, setBlockReward] = useState<number>()
   const [blockTime, setBlockTime] = useState<number>()
 
-  const [addPower, setAddPower] = useState(false)
+  const [addPower, setAddPower] = useState(() => {
+    const profitStorageData = getStorageData<ProfitStorageData>('profit')
+
+    if (profitStorageData?.additionPower === undefined) return false
+    return profitStorageData?.additionPower
+  })
   const [buttonStatus, setButtonStatus] = useState<'locked' | 'pressed' | 'available'>('locked')
 
   useEffect(() => {
-    const assignedPowerByStorage = getStorageData('asigned_power')
-    if (assignedPowerByStorage !== null) setAssignedPower(parseFloat(assignedPowerByStorage))
+    const profitStorageData = getStorageData<ProfitStorageData>('profit')
+    if (profitStorageData !== null) setAssignedPower(profitStorageData.assignedPower)
 
     customApiFetch<BaseData<CurrenciesConfig>>('currencies').then((data) => {
       if (typeof data.data === 'object') {
         const theyCanBeMined = data.data.currencies_config.filter(f => f.is_can_be_mined).sort((a, b) => a.position - b.position)
-        const previousCurrency = theyCanBeMined.find(f => f.balance_key === getStorageData('currency_selected'))
+        const previousCurrency = theyCanBeMined.find(f => f.balance_key === profitStorageData?.currencySelectedKey)
 
         setCurrencies(theyCanBeMined)
 
@@ -63,7 +68,10 @@ export default function Form () {
   useEffect(() => {
     if (notUndefined) {
       if (buttonStatus !== 'available') setButtonStatus('available')
-      updateStorageData('asigned_power', assignedPower)
+      updateStorageData<ProfitStorageData>('profit', {
+        assignedPower,
+        additionPower: addPower
+      })
     } else if (buttonStatus !== 'locked') setButtonStatus('locked')
   }, [assignedPower, networkPower, blockTime, blockReward, currency, addPower])
 

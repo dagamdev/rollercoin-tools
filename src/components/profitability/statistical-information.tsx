@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import useProfitability from '@/hooks/use-profitabilitytools'
 import CustomInput from '../custom-input'
 import MetricDisplay from '../metric-display'
+import { getStorageData, updateStorageData } from '@/utils/servicestools'
+import type { ProfitabilityStorageData } from '@/typestools'
 
 export default function StatisticalInformation () {
   const { updateProfitability } = useProfitability()
@@ -11,6 +13,14 @@ export default function StatisticalInformation () {
   const [power, setPower] = useState(0)
   const [bonusPower, setBonusPower] = useState(0)
   const [totalPower, setTotalPower] = useState(0)
+
+  useEffect(() => {
+    const profitabilityStorageData = getStorageData<ProfitabilityStorageData>('profitability')
+
+    setMinersPower(profitabilityStorageData?.minersPower)
+    setGamesPower(profitabilityStorageData?.gamesPower)
+    setBonusPercentage(profitabilityStorageData?.bonusPercentage)
+  }, [])
 
   useEffect(() => {
     if (minersPower === undefined && gamesPower === undefined) {
@@ -27,6 +37,12 @@ export default function StatisticalInformation () {
       updateProfitability({
         actualPower: acumulatedPowers
       })
+
+      updateStorageData<ProfitabilityStorageData>('profitability', {
+        minersPower,
+        gamesPower,
+        bonusPercentage
+      }, 'object')
     }
   }, [minersPower, bonusPercentage, gamesPower])
 
