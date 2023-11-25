@@ -1,6 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from 'next'
 
-export default async function CurrencyImg (req: NextApiRequest, res: NextApiResponse) {
+export default async function CurrencyIconImg (req: NextApiRequest, res: NextApiResponse) {
   const { currency } = req.query
 
   if (typeof currency !== 'string') {

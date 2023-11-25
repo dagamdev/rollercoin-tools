@@ -1,7 +1,7 @@
 import { customFetch } from '@/libtools'
 import { type NextApiRequest, type NextApiResponse } from 'next'
 
-export default async function CurrencyInfo (req: NextApiRequest, res: NextApiResponse) {
+export default async function CurrencyBlockInfo (req: NextApiRequest, res: NextApiResponse) {
   const { currency } = req.query
 
   if (typeof currency !== 'string') {
