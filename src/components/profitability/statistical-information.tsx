@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import useProfitability from '@/hooks/use-profitabilitytools'
-import CustomInput from '../custom-input'
-import MetricDisplay from '../metric-display'
+import CustomInput from '../shared/custom-input'
+import MetricDisplay from '../shared/metric-display'
 import { getStorageData, updateStorageData } from '@/utils/servicestools'
 import type { ProfitabilityStorageData } from '@/typestools'
 

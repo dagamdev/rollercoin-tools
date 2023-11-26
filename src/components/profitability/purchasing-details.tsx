@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import useProfitability from '@/hooks/use-profitabilitytools'
-import CustomInput from '../custom-input'
+import CustomInput from '../shared/custom-input'
 import { getStorageData, updateStorageData } from '@/utils/servicestools'
 import type { ProfitabilityStorageData } from '@/typestools'
 

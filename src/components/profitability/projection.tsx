@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import MetricDisplay from '../metric-display'
+import MetricDisplay from '../shared/metric-display'
 import useProfitability from '@/hooks/use-profitabilitytools'
 
 export default function Projection () {

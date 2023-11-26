@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import MetricDisplay from '../metric-display'
+import MetricDisplay from '../shared/metric-display'
 import { POWER_UNITS } from '@/utils/configtools'
 import useProfitability from '@/hooks/use-profitabilitytools'
 
