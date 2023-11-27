@@ -3,11 +3,11 @@ import UnitSelector from '../profit/unit-selector'
 import { POWER_UNITS, type PowerUnits } from '@/utils/configtools'
 import type { StateFunction } from '@/typestools'
 
-export default function CustomInput ({ type, text, value, setValue }: {
+export default function CustomInput ({ type, value, setValue, children }: {
   type: 'number' | 'power'
-  text: string
   value?: number
   setValue: StateFunction<number | undefined>
+  children: React.ReactNode
 }) {
   const inputId = useId()
   const [powerUnit, setPowerUnit] = useState<PowerUnits>('Th')
@@ -45,7 +45,7 @@ export default function CustomInput ({ type, text, value, setValue }: {
 
   return (
     <label className='flex w-full flex-col' htmlFor={inputId}>
-      {text}
+      {children}
       {type === 'power'
         ? <section className='flex mt-1 w-full rounded-md border border-gray-700 bg-gray-900'>
             <input className='px-3 w-full py-2 outline-none bg-transparent'
