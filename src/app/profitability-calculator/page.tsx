@@ -6,7 +6,7 @@ import StatisticalInformation from '@/components/profitability/statistical-infor
 import PurchasingDetails from '@/components/profitability/purchasing-detailstools'
 import Projection from '@/components/profitability/projectiontools'
 import Results from '@/components/profitability/resultstools'
-import CustomButton from '@/components/custom-buttontools'
+import CustomButton from '@/components/shared/custom-buttontools'
 import type { ButtonStates, ProfitabilityData } from '@/typestools'
 
 export default function ProfitabilityCalculator () {
