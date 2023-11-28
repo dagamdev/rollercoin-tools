@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction, ReactNode } from 'react'
 
 export interface BaseData<Data> {
   success: boolean
@@ -82,4 +82,19 @@ export interface ProfitabilityStorageData {
   purchasingCost?: number
   purchasingPower?: number
   purchasingBonus?: number
+}
+
+export type Directions = 'top' | 'bottom' | 'right' | 'left'
+
+export interface Tooltip {
+  id: string
+  target: {
+    y: number
+    x: number
+    height: number
+    width: number
+  }
+  maxWidth: number
+  content: ReactNode
+  direction: Directions
 }
