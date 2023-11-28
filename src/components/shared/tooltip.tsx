@@ -113,7 +113,7 @@ export default function Tooltip ({ tooltip }: {
   const horizontal = ['top', 'bottom'].some(s => arrowDirection === s)
 
   return (
-    <div className={'text-sm py-2 px-4 absolute z-50 shadow-lg shadow-slate-950/40 rounded-md pointer-events-none bg-gray-950' + ((top !== 0 || left !== 0)
+    <div className={'text-sm py-2 px-3 absolute z-50 shadow-lg shadow-slate-950/40 rounded-md pointer-events-none bg-gray-950' + ((top !== 0 || left !== 0)
       ? ''
       : ' invisible'
     )}
