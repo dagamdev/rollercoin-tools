@@ -1,44 +1,45 @@
 'use client'
 
-import { useRef, useEffect, type ReactNode } from 'react'
+import { useState, useEffect, type ReactNode } from 'react'
 import useTooltips from '@/hooks/use-tooltipstools'
+import { FaInfoCircle } from 'react-icons/fa'
+import type { Directions } from '@/typestools'
 
-export default function SetTooltip ({ targetId, direction, children }: {
+export default function SetTooltip ({ targetId, direction, children, maxWidth, defaultTarget }: {
   targetId: string
-  direction?: 'top' | 'button' | 'right' | 'left'
   children?: ReactNode
+  maxWidth?: number
+  direction?: Directions
+  defaultTarget?: boolean
 }) {
   const { addTooltip, removeTooltip } = useTooltips()
+  const [defaultElement, setDefaultElement] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
-    const target = document.getElementById(targetId)
+    const target = document.getElementById(targetId) ?? defaultElement
 
     if (target !== null) {
-      console.log('not is null')
-      const rect = target.getBoundingClientRect()
-      const id = crypto.randomUUID()
+      const handleMouseenter = (e: MouseEvent) => {
+        if (e.currentTarget instanceof HTMLElement) {
+          const rect = e.currentTarget.getBoundingClientRect()
 
-      console.log(rect.top, rect.left)
-      console.log(rect.height, rect.width)
-      console.log({
-        y: rect.top + rect.height / 2,
-        x: rect.left + rect.width / 2
-      })
-
-      const handleMouseenter = () => {
-        console.log('mouse enter')
-        addTooltip({
-          id,
-          content: children,
-          position: {
-            y: rect.top + rect.height / 2,
-            x: rect.left + rect.width / 2
-          }
-        })
+          addTooltip({
+            id: targetId,
+            content: children,
+            target: {
+              y: e.currentTarget.offsetTop + rect.height / 2,
+              x: e.currentTarget.offsetLeft + rect.width / 2,
+              height: rect.height,
+              width: rect.width
+            },
+            maxWidth: maxWidth ?? 300,
+            direction: direction ?? 'top'
+          })
+        }
       }
 
       const handleMouseleave = () => {
-        removeTooltip(id)
+        removeTooltip(targetId)
       }
 
       target.addEventListener('mouseenter', handleMouseenter)
@@ -49,7 +50,7 @@ export default function SetTooltip ({ targetId, direction, children }: {
         target.removeEventListener('mouseleave', handleMouseleave)
       }
     }
-  }, [])
+  }, [targetId, defaultElement])
 
-  return null
+  return defaultTarget === true ? <span id={targetId}><FaInfoCircle ref={setDefaultElement} /></span> : <></>
 }
