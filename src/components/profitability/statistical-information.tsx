@@ -57,9 +57,15 @@ export default function StatisticalInformation () {
       <h2 className='font-bold text-xl text-center'>Your statistical information</h2>
 
       <section className='space-y-1'>
-        <CustomInput type='power' text='Miners power' setValue={setMinersPower} />
-        <CustomInput type='power' text='Games power' setValue={setGamesPower} />
-        <CustomInput type='number' text='Bonus percentage' setValue={setBonusPercentage} />
+        <CustomInput type='power' setValue={setMinersPower} value={minersPower}>
+          Miners power
+        </CustomInput>
+        <CustomInput type='power' setValue={setGamesPower} value={gamesPower}>
+          Games power
+        </CustomInput>
+        <CustomInput type='number' setValue={setBonusPercentage} value={bonusPercentage}>
+          Bonus percentage
+        </CustomInput>
       </section>
 
       <section className='space-y-2'>
