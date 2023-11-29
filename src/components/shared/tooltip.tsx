@@ -94,12 +94,6 @@ export default function Tooltip ({ tooltip }: {
 
       if (direction === 'left' || direction === 'right') arrowPosition = target.y - top
 
-      console.log({
-        arrowPosition,
-        height: rect.height,
-        width: rect.width
-      })
-
       setTooltipCalculations({
         top,
         left,
