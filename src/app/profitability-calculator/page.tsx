@@ -8,6 +8,7 @@ import Projection from '@/components/profitability/projectiontools'
 import Results from '@/components/profitability/resultstools'
 import CustomButton from '@/components/shared/custom-buttontools'
 import type { ButtonStates, ProfitabilityData } from '@/typestools'
+import SetTooltip from '@/components/shared/set-tooltiptools'
 
 export default function ProfitabilityCalculator () {
   const [profitabilityData, setProfitabilityData] = useState<ProfitabilityData>({})
@@ -28,7 +29,10 @@ export default function ProfitabilityCalculator () {
 
   return (
     <>
-      <h1 className='font-bold text-3xl mb-5'>Profitability calculator</h1>
+      <h1 className='font-bold text-3xl mb-5' id='profitability-calculator-title' >Profitability calculator</h1>
+      <SetTooltip targetId='profitability-calculator-title' maxWidth={300}>
+        With this calculator, you can calculate how much your mining power and bonus will increase with each new <strong>acquisition</strong> and determine if it&apos;s worthwhile or not based on its cost in <strong>RLT</strong>.
+      </SetTooltip>
 
       <form onSubmit={handleSubmit} className='flex flex-col items-center'>
         <section className='flex flex-wrap gap-5 justify-center'>
