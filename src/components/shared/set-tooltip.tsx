@@ -52,5 +52,5 @@ export default function SetTooltip ({ targetId, direction, children, maxWidth, d
     }
   }, [targetId, defaultElement])
 
-  return defaultTarget === true ? <span id={targetId}><FaInfoCircle ref={setDefaultElement} /></span> : <></>
+  return defaultTarget === true ? <span className='text-gray-500' id={targetId}><FaInfoCircle ref={setDefaultElement} /></span> : <></>
 }
