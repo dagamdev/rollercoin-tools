@@ -22,7 +22,7 @@ export default function CurrencySelector ({ currency, setCurrency, currencies }:
   return (
     <section className='flex-1'>
       <div className='flex gap-x-1 items-center'>
-        <SetTooltip defaultTarget targetId='currency-selector-info' direction='left'>
+        <SetTooltip defaultTarget targetId='currency-selector-info'>
           Select a currency to calculate your earnings
         </SetTooltip>
         <p>Select currency</p>

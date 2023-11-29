@@ -100,7 +100,7 @@ export default function Form () {
       </section>
 
       <CustomInput type='power' value={assignedPower} setValue={setAssignedPower}>
-        <SetTooltip defaultTarget targetId='profit-power-asigned' direction='right'>
+        <SetTooltip defaultTarget targetId='profit-power-asigned'>
           Mining power allocated to the currency
         </SetTooltip>
         <p>Power to the currency</p>
@@ -113,13 +113,13 @@ export default function Form () {
       </CustomInput>
       <section className='flex w-full gap-x-4'>
         <CustomInput type='number' value={blockReward} setValue={setBlockReward}>
-          <SetTooltip defaultTarget targetId='profit-block-reward' direction='left' maxWidth={200}>
+          <SetTooltip defaultTarget targetId='profit-block-reward'>
             Amount of reward coins per block
           </SetTooltip>
           <p>Reward per block</p>
         </CustomInput>
         <CustomInput type='number' value={blockTime} setValue={setBlockTime}>
-          <SetTooltip defaultTarget targetId='profit-block-time' direction='bottom'>
+          <SetTooltip defaultTarget targetId='profit-block-time'>
             Time interval between each block reward
           </SetTooltip>
           <p>Block time</p>

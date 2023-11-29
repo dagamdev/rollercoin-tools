@@ -12,7 +12,7 @@ export default function SwitchPower ({ addPower, setAddPower }: {
   return (
     <section className='flex flex-col'>
       <div className='flex gap-x-1 items-center'>
-        <SetTooltip targetId='switch-power-info' defaultTarget direction='bottom'>
+        <SetTooltip targetId='switch-power-info' defaultTarget>
           When activating this option, your mining power will be added to the currency&apos;s network power when calculating earnings
         </SetTooltip>
         <p>Addition power</p>
