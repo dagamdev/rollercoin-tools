@@ -45,7 +45,9 @@ export default function CustomInput ({ type, value, setValue, children }: {
 
   return (
     <label className='flex w-full flex-col' htmlFor={inputId}>
-      {children}
+      <p className='flex gap-1 items-center'>
+        {children}
+      </p>
       {type === 'power'
         ? <section className='flex mt-1 w-full rounded-md border border-gray-700 bg-gray-900'>
             <input className='px-3 w-full py-2 outline-none bg-transparent'
