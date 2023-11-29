@@ -3,7 +3,7 @@ export default function Home () {
     <>
       <h1 className='text-3xl font-bold mb-5'>Roller tools</h1>
 
-      <p className='max-w-lg'>Herramientas para <strong><a className='underline hover:no-underline text-blue-500' href='https://rollercoin.com' target='_blank' rel="noreferrer">🐹 RollerCoin</a></strong> como la calculadora de <strong>ganancias</strong> para decidir qué moneda minar, la calculadora de <strong>rentabilidad</strong> para saber si una nueva adquisición es rentable en base a su costo por <strong>RLT</strong> y las ganancias de poder y bonus.</p>
+      <p className='max-w-lg'>Tools for <strong>🐹 <a className='underline hover:no-underline text-blue-500' href='https://rollercoin.com/?r=lmuu1uvb' target='_blank' rel="noreferrer">RollerCoin</a></strong> like the <strong>profit</strong> calculator to decide which currency to mine, the <strong>profitability</strong> calculator to determine if a new acquisition is <strong>profitable</strong> based on its cost in <strong>RLT</strong>, and the <strong>power</strong> and <strong>bonus</strong> earnings.</p>
     </>
   )
 }
