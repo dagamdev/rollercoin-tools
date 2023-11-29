@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import type { Currency, ProfitStorageData, StateFunction } from '@/typestools'
 import { MdArrowBackIos } from 'react-icons/md'
 import { updateStorageData } from '@/utils/servicestools'
+import SetTooltip from '../shared/set-tooltip'
 
 export default function CurrencySelector ({ currency, setCurrency, currencies }: {
   currency?: Currency
@@ -20,7 +21,12 @@ export default function CurrencySelector ({ currency, setCurrency, currencies }:
 
   return (
     <section className='flex-1'>
-      <p>Select currency</p>
+      <div className='flex gap-x-1 items-center'>
+        <SetTooltip defaultTarget targetId='currency-selector-info' direction='left'>
+          Select a currency to calculate your earnings
+        </SetTooltip>
+        <p>Select currency</p>
+      </div>
 
       <div className={`mt-1 currency-selector ${openCurrencySelector ? 'open-selector ' : ''}relative z-10`}>
         <div className={'selected-currency flex relative items-center z-10 py-2 px-3 min-h-[40px] cursor-pointer justify-between rounded-md border border-gray-700 bg-gray-900' + (openCurrencySelector

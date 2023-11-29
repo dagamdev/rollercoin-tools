@@ -1,3 +1,4 @@
+import SetTooltip from '../shared/set-tooltip'
 import type { StateFunction } from '@/typestools'
 
 export default function SwitchPower ({ addPower, setAddPower }: {
@@ -10,7 +11,12 @@ export default function SwitchPower ({ addPower, setAddPower }: {
 
   return (
     <section className='flex flex-col'>
-      <p>Addition power</p>
+      <div className='flex gap-x-1 items-center'>
+        <SetTooltip targetId='switch-power-info' defaultTarget direction='bottom'>
+          When activating this option, your mining power will be added to the currency&apos;s network power when calculating earnings
+        </SetTooltip>
+        <p>Addition power</p>
+      </div>
       <div className='flex flex-1 items-center'>
         <div className={'flex mt-1 w-[50px] rounded-xl border cursor-pointer relative border-gray-700 bg-gray-900'}
           onClick={handleClick}

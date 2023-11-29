@@ -3,6 +3,7 @@ import useProfitability from '@/hooks/use-profitabilitytools'
 import CustomInput from '../shared/custom-input'
 import { getStorageData, updateStorageData } from '@/utils/servicestools'
 import type { ProfitabilityStorageData } from '@/typestools'
+import SetTooltip from '../shared/set-tooltip'
 
 export default function PurchasingDetails () {
   const [purchasingCost, setPurchasingCost] = useState<number>()
@@ -37,9 +38,24 @@ export default function PurchasingDetails () {
       <h2 className='font-bold text-xl mb-4 text-center'>Purchasing details</h2>
 
       <section className='space-y-1'>
-        <CustomInput type='number' text='Purchasing cost' value={purchasingCost} setValue={setPurchasingCost} />
-        <CustomInput type='power' text='Purchasing power' value={purchasingPower} setValue={setPurchasingPower} />
-        <CustomInput type='number' text='Purchasing bonus' value={purchasingBonus} setValue={setPurchasingBonus} />
+        <CustomInput type='number' value={purchasingCost} setValue={setPurchasingCost}>
+          <SetTooltip targetId='profitability-purchasing-cost' defaultTarget>
+            Cost in RLT of the new acquisition
+          </SetTooltip>
+          Purchasing cost
+        </CustomInput>
+        <CustomInput type='power' value={purchasingPower} setValue={setPurchasingPower}>
+          <SetTooltip targetId='profitability-purchasing-power' defaultTarget>
+            Mining power of the new acquisition
+          </SetTooltip>
+          Purchasing power
+        </CustomInput>
+        <CustomInput type='number' value={purchasingBonus} setValue={setPurchasingBonus}>
+          <SetTooltip targetId='profitability-purchasing-bonus' defaultTarget>
+            Bonus of the new acquisition
+          </SetTooltip>
+          Purchasing bonus
+        </CustomInput>
       </section>
     </article>
   )

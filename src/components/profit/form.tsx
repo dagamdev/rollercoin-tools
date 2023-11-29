@@ -3,9 +3,10 @@ import { customApiFetch, getStorageData, updateStorageData } from '@/utils/servi
 import type { BaseData, CurrenciesConfig, Currency, DateAndValue, ProfitStorageData } from '@/typestools'
 import useProfit from '@/hooks/use-profittools'
 import SwitchPower from './switch-power'
-import CustomInput from '../custom-input'
+import CustomInput from '../shared/custom-input'
 import CurrencySelector from './currency-selector'
-import CustomButton from '../custom-button'
+import CustomButton from '../shared/custom-button'
+import SetTooltip from '../shared/set-tooltip'
 
 export default function Form () {
   const { setProfitData } = useProfit()
@@ -98,11 +99,31 @@ export default function Form () {
         <SwitchPower {...{ addPower, setAddPower }} />
       </section>
 
-      <CustomInput type='power' value={assignedPower} setValue={setAssignedPower} text='Power to the currency' />
-      <CustomInput type='power' value={networkPower} setValue={setNetworkPower} text='Network power' />
+      <CustomInput type='power' value={assignedPower} setValue={setAssignedPower}>
+        <SetTooltip defaultTarget targetId='profit-power-asigned' direction='right'>
+          Mining power allocated to the currency
+        </SetTooltip>
+        <p>Power to the currency</p>
+      </CustomInput>
+      <CustomInput type='power' value={networkPower} setValue={setNetworkPower}>
+        <SetTooltip defaultTarget targetId='profit-network-power'>
+          Mining network power of the currency
+        </SetTooltip>
+        <p>Network power</p>
+      </CustomInput>
       <section className='flex w-full gap-x-4'>
-        <CustomInput type='number' value={blockReward} setValue={setBlockReward} text='Reward per block' />
-        <CustomInput type='number' value={blockTime} setValue={setBlockTime} text='Block time' />
+        <CustomInput type='number' value={blockReward} setValue={setBlockReward}>
+          <SetTooltip defaultTarget targetId='profit-block-reward' direction='left' maxWidth={200}>
+            Amount of reward coins per block
+          </SetTooltip>
+          <p>Reward per block</p>
+        </CustomInput>
+        <CustomInput type='number' value={blockTime} setValue={setBlockTime}>
+          <SetTooltip defaultTarget targetId='profit-block-time' direction='bottom'>
+            Time interval between each block reward
+          </SetTooltip>
+          <p>Block time</p>
+        </CustomInput>
       </section>
 
       <CustomButton buttonStatus={buttonStatus}>
