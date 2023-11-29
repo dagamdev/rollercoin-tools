@@ -32,7 +32,7 @@ export default function SetTooltip ({ targetId, direction, children, maxWidth, d
               height: rect.height,
               width: rect.width
             },
-            maxWidth: maxWidth ?? 300,
+            maxWidth: maxWidth ?? 250,
             direction: direction ?? 'top'
           })
         }
