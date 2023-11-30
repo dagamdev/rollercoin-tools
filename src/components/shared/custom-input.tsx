@@ -50,7 +50,7 @@ export default function CustomInput ({ type, value, setValue, children }: {
       </p>
       {type === 'power'
         ? <section className='flex mt-1 w-full rounded-md border border-gray-700 bg-gray-900'>
-            <input className='px-3 w-full py-2 outline-none bg-transparent'
+            <input className='arcana-text px-3 w-full py-2 outline-none bg-transparent'
               onChange={handleChange}
               style={{
                 WebkitAppearance: 'none',
@@ -60,7 +60,7 @@ export default function CustomInput ({ type, value, setValue, children }: {
             />
           <UnitSelector selectValue={powerUnit} setSelectValue={setPowerUnit} />
         </section>
-        : <input className='flex w-full mt-1 px-3 py-2 outline-none rounded-md border border-gray-700 bg-gray-900'
+        : <input className='arcana-text flex w-full mt-1 px-3 py-2 outline-none rounded-md border border-gray-700 bg-gray-900'
           onChange={handleChange}
           style={{
             WebkitAppearance: 'none',

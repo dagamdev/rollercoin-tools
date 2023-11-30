@@ -29,7 +29,7 @@ export default function ProfitabilityCalculator () {
 
   return (
     <>
-      <h1 className='font-bold text-3xl mb-5' id='profitability-calculator-title' >Profitability calculator</h1>
+      <h1 className='arcana-text font-bold text-3xl mb-5' id='profitability-calculator-title' >Profitability calculator</h1>
       <SetTooltip targetId='profitability-calculator-title' maxWidth={300}>
         With this calculator, you can calculate how much your mining power and bonus will increase with each new <strong>acquisition</strong> and determine if it&apos;s worthwhile or not based on its cost in <strong>RLT</strong>.
       </SetTooltip>

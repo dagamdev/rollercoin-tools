@@ -53,7 +53,7 @@ export default function Table () {
       <table className='rounded-md border-collapse bg-gray-900'>
         <thead>
           <tr className='border border-gray-600 bg-gray-800'>
-            <th className='px-3 py-2 text-left'>Reward by</th>
+            <th className='px-3 py-2 text-left'>By</th>
             <th className='px-3 py-2 text-left'>Reward</th>
             <th className='px-3 py-2 text-left'>USD</th>
           </tr>

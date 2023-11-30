@@ -17,7 +17,7 @@ export default function ProfitCalculatorPage () {
 
   return (
     <>
-      <h1 className='font-bold text-3xl mb-5' id='profit-calculator-title'>Profit calculator</h1>
+      <h1 className='arcana-text font-bold text-3xl mb-5' id='profit-calculator-title'>Profit calculator</h1>
       <SetTooltip targetId='profit-calculator-title' maxWidth={300}>
         With this calculator, you can calculate your earnings for each currency, displaying a <strong>profit</strong> overview table over time intervals ranging from per <strong>block</strong> to <strong>1 month</strong>.
       </SetTooltip>

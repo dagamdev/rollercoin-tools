@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Arcana';
+  src: url('/fonts/ArcanaRegular.woff') format('woff');
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -51,4 +56,9 @@ button.key.locked, button.key.pressed{
 
 button.key.locked span, button.key.pressed span{
   height: 2px;
+}
+
+.arcana-text{
+  font-family: Arcana, sans-serif;
+  letter-spacing: 1.4px;
 }
